@@ -1,0 +1,62 @@
+[
+  {
+    "nome": "gustavo",
+    "telefone": "(41) 99999-9999",
+    "quantidade": "1",
+    "detalhes_combos": [
+      {
+        "combo_numero": 1,
+        "ingredientes": [
+          "completo"
+        ],
+        "ponto_carne": "mal-passado",
+        "bebida": "coca-cola"
+      }
+    ],
+    "informacoes_adicionais": "não",
+    "local_consumo": "levar",
+    "forma_pagamento": "pix",
+    "data_pedido": "2025-09-25T21:16:34.225Z",
+    "id": 1
+  },
+  {
+    "nome": "amanda",
+    "telefone": "(41) 99999-9999",
+    "quantidade": "1",
+    "detalhes_combos": [
+      {
+        "combo_numero": 1,
+        "ingredientes": [
+          "sem-cebola"
+        ],
+        "ponto_carne": "mal-passado",
+        "bebida": "coca-cola-zero"
+      }
+    ],
+    "informacoes_adicionais": "não",
+    "local_consumo": "comer_local",
+    "forma_pagamento": "credito",
+    "data_pedido": "2025-09-25T21:17:31.529Z",
+    "id": 2
+  },
+  {
+    "nome": "jose",
+    "telefone": "(41) 99999-9999",
+    "quantidade": "1",
+    "detalhes_combos": [
+      {
+        "combo_numero": 1,
+        "ingredientes": [
+          "completo"
+        ],
+        "ponto_carne": "mal-passado",
+        "bebida": "coca-cola"
+      }
+    ],
+    "informacoes_adicionais": "não",
+    "local_consumo": "levar",
+    "forma_pagamento": "pix",
+    "data_pedido": "2025-09-25T21:34:58.213Z",
+    "id": 3
+  }
+]
