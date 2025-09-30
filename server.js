@@ -4,6 +4,7 @@ const fs = require('fs');
 const app = express();
 const PORT = 3000;
 
+
 // 1. Permite que o servidor entenda JSON enviado no corpo das requisições
 app.use(express.json());
 
