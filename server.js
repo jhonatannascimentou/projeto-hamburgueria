@@ -1,8 +1,11 @@
+// Carrega variáveis de ambiente do arquivo .env
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // 1. Permite que o servidor entenda JSON enviado no corpo das requisições
@@ -72,6 +75,53 @@ app.post('/api/pedidos', (req, res) => {
       });
     });
   });
+});
+
+// 🆕 Endpoint seguro para criar card no Trello 
+app.post('/api/trello/card', async (req, res) => {
+  try {
+    const { nomePedido } = req.body;
+    
+    // 🔒 SEGURANÇA: Credenciais vem de variáveis de ambiente
+    const idList = process.env.TRELLO_LIST_ID;
+    const key = process.env.TRELLO_API_KEY;
+    const token = process.env.TRELLO_TOKEN;
+    
+    if (!idList || !key || !token) {
+      return res.status(500).json({ 
+        success: false, 
+        error: 'Credenciais do Trello não configuradas. Configure o arquivo .env' 
+      });
+    }
+    
+    const fetch = (await import('node-fetch')).default;
+    
+    const url = `https://api.trello.com/1/cards?` +
+                `idList=${idList}&` +
+                `key=${key}&` +
+                `token=${token}&` +
+                `name=${encodeURIComponent(nomePedido)}`;
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro ao criar card no Trello: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    console.log('✅ Card criado no Trello:', data.name);
+    
+    res.json({ success: true, card: data });
+    
+  } catch (error) {
+    console.error('❌ Erro ao criar card no Trello:', error.message);
+    res.status(500).json({ success: false, error: error.message });
+  }
 });
 
 // 4. Inicia o servidor
