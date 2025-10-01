@@ -54,11 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Exibe o objeto no console para depuração. Você pode remover esta linha em produção.
     console.log('Dados a serem enviados:', JSON.stringify(pedido, null, 2));
+    // Exporta apenas o nome do pedido para ser usado em outro módulo
 
-    const teste = pedido.nome;
-    // Exporta o pedido para ser usado em outro módulo
-    module.exports = { pedido };
-    module.exports = { teste };
 
     // Chama a função para criar o card no Trello
     criarCardTrello();
@@ -92,5 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // alert('Ocorreu um erro ao enviar seu pedido. Por favor, tente novamente.');
     });
   });
+  
 
 });
+    export const nomePedido = pedido.nome;
