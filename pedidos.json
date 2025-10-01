@@ -58,5 +58,25 @@
     "forma_pagamento": "pix",
     "data_pedido": "2025-09-25T21:34:58.213Z",
     "id": 3
+  },
+  {
+    "nome": "TEste GUstavo",
+    "telefone": "(41) 99968-5214",
+    "quantidade": "1",
+    "detalhes_combos": [
+      {
+        "combo_numero": 1,
+        "ingredientes": [
+          "completo"
+        ],
+        "ponto_carne": "mal-passado",
+        "bebida": "coca-cola"
+      }
+    ],
+    "informacoes_adicionais": "teste",
+    "local_consumo": "levar",
+    "forma_pagamento": "pix",
+    "data_pedido": "2025-10-01T02:09:53.337Z",
+    "id": 4
   }
 ]
