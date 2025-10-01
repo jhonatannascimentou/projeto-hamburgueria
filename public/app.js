@@ -1,3 +1,5 @@
+  import { criarCardTrello } from '../utils/pedidoUtils.js';
+
 // Aguarda o conteúdo da página carregar completamente antes de executar o script
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -52,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Exibe o objeto no console para depuração. Você pode remover esta linha em produção.
     console.log('Dados a serem enviados:', JSON.stringify(pedido, null, 2));
+    // Exporta apenas o nome do pedido para ser usado em outro módulo
+
+
+    // Chama a função para criar o card no Trello
+    criarCardTrello();
 
     // 4. Enviar para o servidor (simulação)
     // Substitua '/api/pedidos' pela URL real da sua API
@@ -82,5 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // alert('Ocorreu um erro ao enviar seu pedido. Por favor, tente novamente.');
     });
   });
+  
 
 });
+    export const nomePedido = pedido.nome;
